@@ -116,7 +116,24 @@ export default async function Home({
   };
 
   const renderData = async () => {
-    if (!frameMessage) return null;
+    if (!frameMessage)
+      return (
+        <div tw="flex items-center justify-center w-full h-full bg-slate-700 text-black">
+          <div tw="flex justify-start items-center flex-wrap bg-white rounded-lg shadow-md max-w-2xl p-12 text-5xl">
+            <span>Click</span>
+            <span
+              tw="p-2 bg-slate-200 rounded-lg ml-2 font-bold border-slate-400 border-2"
+              className="border-slate-600 border-2"
+            >
+              Check $DEGEN
+            </span>{" "}
+            <span>
+              below to see your $DEGEN stats. Enter a wallet or fid to check
+              someone else's stats.
+            </span>
+          </div>
+        </div>
+      );
 
     let id = frameMessage.inputText || `${frameMessage.requesterFid}`;
 
